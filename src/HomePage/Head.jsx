@@ -84,7 +84,6 @@ function Head() {
 const HeaderContainer = styled.header`
   width: 100%;
   display: flex;
-  background-color: #f8f8f8;
   padding: 10px 20px;
 `;
 
