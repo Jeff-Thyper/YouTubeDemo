@@ -1,8 +1,32 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import styled from 'styled-components';
 import {VideoCard} from "./VideoCard";
 
 export default function VideoGallery() {
+
+    const [isFocusModeEnabled, setIsFocusModeEnabled] = useState(
+        JSON.parse(localStorage.getItem('focusModeEnabled') || 'false')
+    );
+
+    // Listen for changes to localStorage
+    useEffect(() => {
+        const handleStorageChange = () => {
+            const newValue = JSON.parse(localStorage.getItem('focusModeEnabled') || 'false');
+            setIsFocusModeEnabled(newValue);
+        };
+
+        // Listen for storage events
+        window.addEventListener('storage', handleStorageChange);
+
+        // Also listen for a custom event for same-window updates
+        window.addEventListener('focusModeChanged', handleStorageChange);
+
+        return () => {
+            window.removeEventListener('storage', handleStorageChange);
+            window.removeEventListener('focusModeChanged', handleStorageChange);
+        };
+    }, []);
+
     const filterTags = [
         { label: 'All', active: true },
         { label: 'Podcasts' },
@@ -28,7 +52,8 @@ export default function VideoGallery() {
             title: "Lecture 1: Definitions of System, Property, State, and Weight",
             channelName: "MIT OpenCourseWare",
             views: "13K",
-            uploadTime: "3 days ago"
+            uploadTime: "3 days ago",
+            isCredible: true
         },
         {
             thumbnailUrl: "images/game1.png",
@@ -37,7 +62,8 @@ export default function VideoGallery() {
             title: "Where Did You Learn To Fly!? (Game Fails #461)",
             channelName: "GameSprout",
             views: "30K",
-            uploadTime: "11 hours ago"
+            uploadTime: "11 hours ago",
+            isCredible: false
         },
         {
             thumbnailUrl: "images/course1.png",
@@ -47,7 +73,8 @@ export default function VideoGallery() {
                 "CS - Python | Khan Academy",
             channelName: "Khan Academy",
             views: "5.6K",
-            uploadTime: "3 weeks ago"
+            uploadTime: "3 weeks ago",
+            isCredible: true
         },
         {
             thumbnailUrl: "images/cook.png",
@@ -56,7 +83,8 @@ export default function VideoGallery() {
             title: "How To Cook The Perfect Steak",
             channelName: "Nick DiGiovanni",
             views: "5.8M",
-            uploadTime: "1 year ago"
+            uploadTime: "1 year ago",
+            isCredible: false
         },
         {
             thumbnailUrl: "images/c4.png",
@@ -66,7 +94,8 @@ export default function VideoGallery() {
                 "Review - Antiderivatives, Definite ...",
             channelName: "The Organic Chemistry Tutor",
             views: "26K",
-            uploadTime: "3 weeks ago"
+            uploadTime: "3 weeks ago",
+            isCredible: true
         },
         {
             thumbnailUrl: "images/c5.png",
@@ -75,7 +104,8 @@ export default function VideoGallery() {
             title: "Biology explained in 17 Minutes",
             channelName: "Wacky Science",
             views: "905K",
-            uploadTime: "4 months ago"
+            uploadTime: "4 months ago",
+            isCredible: true
         },
         {
             thumbnailUrl: "images/c2.png",
@@ -85,7 +115,8 @@ export default function VideoGallery() {
                 "in 2 Minutes",
             channelName: "Prof Korupt",
             views: "154K",
-            uploadTime: "2 months ago"
+            uploadTime: "2 months ago",
+            isCredible: false
         },
         {
             thumbnailUrl: "images/c3.png",
@@ -94,7 +125,8 @@ export default function VideoGallery() {
             title: "Calculus at Fifth Grade Level",
             channelName: "Lukey B. The Physics G",
             views: "8.4M",
-            uploadTime: "7 years ago"
+            uploadTime: "7 years ago",
+            isCredible: false
         },
         {
             thumbnailUrl: "images/game2.png",
@@ -103,7 +135,8 @@ export default function VideoGallery() {
             title: "25 Perfect 10/10 Games You MUST Play",
             channelName: "GameVerseChamp",
             views: "5.8M",
-            uploadTime: "1 month ago"
+            uploadTime: "1 month ago",
+            isCredible: false
         },
     ];
 
@@ -121,7 +154,11 @@ export default function VideoGallery() {
             </TagsContainer>
             <GridContainer>
                 {videos.map((video, index) => (
-                    <VideoCard key={index} {...video} />
+                    <VideoCard
+                        key={index}
+                        {...video}
+                        isFocusModeEnabled={isFocusModeEnabled}
+                    />
                 ))}
             </GridContainer>
         </GalleryContainer>

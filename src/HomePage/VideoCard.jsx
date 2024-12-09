@@ -8,7 +8,9 @@ export function VideoCard({
                               title,
                               channelName,
                               views,
-                              uploadTime
+                              uploadTime,
+                              isCredible,
+                              isFocusModeEnabled
                           }) {
     return (
         <VideoContainer>
@@ -19,6 +21,14 @@ export function VideoCard({
                     alt="Video thumbnail"
                 />
                 <Duration>{duration}</Duration>
+                {isFocusModeEnabled && isCredible && (
+                    <CredibleBadge>
+                        <CredibleIcon
+                            src="images/credible.svg"
+                            alt="Credible content"
+                        />
+                    </CredibleBadge>
+                )}
             </ThumbnailWrapper>
             <ContentWrapper>
                 <ChannelInfo>
@@ -48,6 +58,22 @@ export function VideoCard({
         </VideoContainer>
     );
 }
+
+const CredibleBadge = styled.div`
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    border-radius: 4px;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+`;
+
+const CredibleIcon = styled.img`
+    width: 100px;
+    height: 30px;
+`;
 
 const VideoContainer = styled.div`
     width: 100%;
@@ -152,11 +178,6 @@ const ChannelNameWrapper = styled.div`
 const ChannelName = styled.span`
     color: #606060;
     font-size: 14px;
-`;
-
-const VerifiedBadge = styled.img`
-  width: 14px;
-  height: 14px;
 `;
 
 const ViewsAndTime = styled.div`

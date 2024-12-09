@@ -56,14 +56,19 @@ const FocusModePopup = ({ isOpen, onClose, isFocusModeEnabled, onToggle }) => {
 
 const ProfileMenu = () => {
     const [isFocusModeOpen, setIsFocusModeOpen] = useState(false);
-    const [isFocusModeEnabled, setIsFocusModeEnabled] = useState(false);
+    const [isFocusModeEnabled, setIsFocusModeEnabled] = useState(() => {
+        return JSON.parse(localStorage.getItem('focusModeEnabled') || 'false');
+    });
 
     const handleFocusModeClick = () => {
         setIsFocusModeOpen(true);
     };
 
     const handleToggleFocusMode = () => {
-        setIsFocusModeEnabled(!isFocusModeEnabled);
+        const newState = !isFocusModeEnabled;
+        setIsFocusModeEnabled(newState);
+        localStorage.setItem('focusModeEnabled', JSON.stringify(newState));
+        window.dispatchEvent(new Event('focusModeChanged'));
     };
 
     const menuSections = [
