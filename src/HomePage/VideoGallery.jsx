@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import {VideoCard} from "./VideoCard";
 
 export default function VideoGallery() {
     const filterTags = [
@@ -18,6 +19,19 @@ export default function VideoGallery() {
         { label: 'Dance' }
     ];
 
+    // Sample video data array
+    const videos = Array(12).fill({
+        thumbnailUrl: "https://cdn.builder.io/api/v1/image/assets/TEMP/d2cd3409fe7871fe63c0c358787a0c8d32f3f6bbcdbde4db3af009b6dbd85cf7",
+        duration: "1:39:43",
+        channelAvatarUrl: "https://cdn.builder.io/api/v1/image/assets/TEMP/c57f366b52250d2ead3bb98b85bca4e9207f1b760058669f524b6a21fa6ad872",
+        channelVerifiedIconUrl: "https://cdn.builder.io/api/v1/image/assets/TEMP/d84bf073355c8df4a8c251dafd329142174b8bd144ffdfef845525286b60577c",
+        title: "Lecture 1: Definitions of System, Property, State, and Weight",
+        menuIconUrl: "https://cdn.builder.io/api/v1/image/assets/TEMP/5dcd86dd623775f3b2f6b4656a32d480db6bf857dbbbf3d6d9c0c6deddabe0b9",
+        channelName: "MIT OpenCourseWare",
+        views: "13K",
+        uploadTime: "3 days ago"
+    });
+
     return (
         <GalleryContainer>
             <TagsContainer>
@@ -31,57 +45,76 @@ export default function VideoGallery() {
                 </NavigationButton>
             </TagsContainer>
             <GridContainer>
+                {videos.map((video, index) => (
+                    <VideoCard key={index} {...video} />
+                ))}
             </GridContainer>
         </GalleryContainer>
     );
 }
 
-// Styles
 const GalleryContainer = styled.main`
-  display: flex;
-  width: 50%;
-    background-color: #61dafb;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    background-color: #fff;
 `;
 
 const TagsContainer = styled.nav`
-    margin-left: 30px;
-  display: flex;
-  align-items: start;
-  gap: 20px;
-  color: #000;
-  text-align: center;
-  justify-content: space-between;
-  font: 500 14px Roboto, sans-serif;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 24px;
+    background-color: #fff;
+    border-bottom: 1px solid #e5e5e5;
+    overflow-x: auto;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
 `;
 
 const Tag = styled.button`
-  border: none;
-  border-radius: 8px;
-  background-color: ${props => props.$active ? '#000' : '#f1f1f1'};
-  color: ${props => props.$active ? '#fff' : '#000'};
-  padding: 11px 12px;
-  font: inherit;
-  cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    background-color: ${props => props.$active ? '#0f0f0f' : '#f2f2f2'};
+    color: ${props => props.$active ? '#fff' : '#0f0f0f'};
+    padding: 8px 12px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
 
-  @media (max-width: 991px) {
-    padding: ${props => props.$active ? '11px 12px' : '0 20px'};
-  }
+    &:hover {
+        background-color: ${props => props.$active ? '#0f0f0f' : '#e5e5e5'};
+    }
 `;
 
 const NavigationButton = styled.button`
-  border: none;
-  background: none;
-  padding: 0;
-  cursor: pointer;
-  width: 15px;
-  height: 15px;
-  margin: auto 0;
+    border: none;
+    background: none;
+    padding: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 `;
 
 const GridContainer = styled.section`
-  margin-top: 36px;
-  @media (max-width: 991px) {
-    max-width: 100%;
-    margin-right: 3px;
-  }
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 24px;
+    padding: 24px;
+    overflow-y: auto;
+    max-width: 1600px;
+    margin: 0 auto;
+    width: 100%;
+
+    @media (min-width: 1024px) {
+        grid-template-columns: repeat(3, 1fr);
+    }
 `;
