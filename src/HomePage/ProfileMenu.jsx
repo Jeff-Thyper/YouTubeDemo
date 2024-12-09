@@ -9,7 +9,7 @@ const FocusModePopup = ({ isOpen, onClose, isFocusModeEnabled, onToggle }) => {
             <PopupContent onClick={e => e.stopPropagation()}>
                 <HeaderSection>
                     <FocusIcon
-                        src="/api/placeholder/17/17"
+                        src="images/mode.svg"
                         alt="Focus mode icon"
                     />
                     <HeaderText>Focus Mode</HeaderText>
@@ -70,11 +70,11 @@ const ProfileMenu = () => {
         {
             items: [
                 {
-                    icon: "/api/placeholder/24/24",
+                    icon: "images/studio.svg",
                     text: "Youtube Studio"
                 },
                 {
-                    icon: "/api/placeholder/24/24",
+                    icon: "images/p&m.svg",
                     text: "Purchases and memberships"
                 }
             ]
@@ -82,32 +82,32 @@ const ProfileMenu = () => {
         {
             items: [
                 {
-                    icon: "/api/placeholder/24/24",
+                    icon: "images/data.svg",
                     text: "Your data in YouTube"
                 },
                 {
-                    icon: "/api/placeholder/24/24",
+                    icon: "images/apper.svg",
                     text: "Appearance: Light"
                 },
                 {
-                    icon: "/api/placeholder/24/24",
+                    icon: "images/lang.svg",
                     text: "Language: British English"
                 },
                 {
-                    icon: "/api/placeholder/24/24",
+                    icon: "images/rsmode.svg",
                     text: "Restricted Mode: Off"
                 },
                 {
-                    icon: "/api/placeholder/24/24",
+                    icon: "images/mode.svg",
                     text: `Focus Mode: ${isFocusModeEnabled ? 'On' : 'Off'}`,
                     onClick: handleFocusModeClick
                 },
                 {
-                    icon: "/api/placeholder/24/24",
+                    icon: "images/loca.svg",
                     text: "Location: United States"
                 },
                 {
-                    icon: "/api/placeholder/24/24",
+                    icon: "images/key.svg",
                     text: "Keyboard shortcuts"
                 }
             ]
@@ -115,7 +115,7 @@ const ProfileMenu = () => {
         {
             items: [
                 {
-                    icon: "/api/placeholder/24/24",
+                    icon: "images/setting.svg",
                     text: "Settings"
                 }
             ]
@@ -123,11 +123,11 @@ const ProfileMenu = () => {
         {
             items: [
                 {
-                    icon: "/api/placeholder/24/24",
+                    icon: "images/help.svg",
                     text: "Help"
                 },
                 {
-                    icon: "/api/placeholder/24/24",
+                    icon: "images/feedback.svg",
                     text: "Send feedback"
                 }
             ]
@@ -141,7 +141,7 @@ const ProfileMenu = () => {
                     <ProfileWrapper>
                         <ProfileContent>
                             <Avatar
-                                src="/api/placeholder/40/40"
+                                src="images/me.svg"
                                 alt="User avatar"
                             />
                             <UserInfo>
@@ -155,21 +155,21 @@ const ProfileMenu = () => {
                     <ControlsWrapper>
                         <AccountItem>
                             <ControlIcon
-                                src="/api/placeholder/24/24"
+                                src="images/Google.svg"
                                 alt="Google Account"
                             />
                             <ControlText>Google Account</ControlText>
                         </AccountItem>
                         <AccountItem>
                             <ControlIcon
-                                src="/api/placeholder/24/24"
+                                src="images/switch.svg"
                                 alt="Switch account"
                             />
                             <ControlText>Switch account</ControlText>
                         </AccountItem>
                         <AccountItem>
                             <ControlIcon
-                                src="/api/placeholder/24/24"
+                                src="images/signout.svg"
                                 alt="Sign out"
                             />
                             <ControlText>Sign out</ControlText>
