@@ -18,4 +18,5 @@ export function Home() {
 
 const VContainer = styled.div`
   display: flex;
+    width: 100%;
 `;

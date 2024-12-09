@@ -75,7 +75,7 @@ export function NavigationBar() {
 
 const SidebarContainer = styled.nav`
   display: flex;
-  max-width: 240px;
+  width: 15%;
   flex-direction: column;
     overflow-y: auto;
     height: 700px;

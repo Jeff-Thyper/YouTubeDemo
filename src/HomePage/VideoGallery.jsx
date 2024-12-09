@@ -18,30 +18,6 @@ export default function VideoGallery() {
         { label: 'Dance' }
     ];
 
-    const gridVideos = [
-        { duration: '1:39:43', thumbnail: 'https://example.com/video1.jpg' },
-        { duration: '5:55', thumbnail: 'https://example.com/video2.jpg' },
-        { duration: '2:01', thumbnail: 'https://example.com/video3.jpg' }
-    ];
-
-    const listVideos = [
-        {
-            title: "Lecture 1: Definitions of System, Property, State, and Weight",
-            channel: "MIT OpenCourseWare",
-            views: "13K",
-            timeAgo: "3 days",
-            avatar: "https://example.com/avatar1.jpg"
-        },
-        {
-            title: "Program design: Nim game | Intro to CS - Python | Khan Academy",
-            channel: "Khan Academy",
-            views: "5.6K",
-            timeAgo: "3 weeks",
-            avatar: "https://example.com/avatar2.jpg",
-            verified: true
-        }
-    ];
-
     return (
         <GalleryContainer>
             <TagsContainer>
@@ -55,40 +31,7 @@ export default function VideoGallery() {
                 </NavigationButton>
             </TagsContainer>
             <GridContainer>
-                <Grid>
-                    {gridVideos.map((video, index) => (
-                        <GridColumn key={index}>
-                            <ThumbnailContainer>
-                                <ThumbnailImage loading="lazy" src={video.thumbnail} alt="" />
-                                <Duration>{video.duration}</Duration>
-                            </ThumbnailContainer>
-                        </GridColumn>
-                    ))}
-                </Grid>
             </GridContainer>
-            <ListContainer>
-                {listVideos.map((video, index) => (
-                    <ItemContainer key={index}>
-                        <VideoInfo>
-                            <AvatarContainer>
-                                <Avatar loading="lazy" src={video.avatar} alt="" />
-                            </AvatarContainer>
-                            <Title>{video.title}</Title>
-                        </VideoInfo>
-                        <ChannelInfo>
-                            <ChannelName>{video.channel}</ChannelName>
-                            {video.verified && (
-                                <VerifiedBadge
-                                    loading="lazy"
-                                    src="https://example.com/verified.png"
-                                    alt="Verified Channel"
-                                />
-                            )}
-                        </ChannelInfo>
-                        <ViewInfo>{`${video.views} views • ${video.timeAgo} ago`}</ViewInfo>
-                    </ItemContainer>
-                ))}
-            </ListContainer>
         </GalleryContainer>
     );
 }
@@ -96,10 +39,12 @@ export default function VideoGallery() {
 // Styles
 const GalleryContainer = styled.main`
   display: flex;
-  flex-direction: column;
+  width: 50%;
+    background-color: #61dafb;
 `;
 
 const TagsContainer = styled.nav`
+    margin-left: 30px;
   display: flex;
   align-items: start;
   gap: 20px;
@@ -139,125 +84,4 @@ const GridContainer = styled.section`
     max-width: 100%;
     margin-right: 3px;
   }
-`;
-
-const Grid = styled.div`
-  gap: 20px;
-  display: flex;
-  @media (max-width: 991px) {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0px;
-  }
-`;
-
-const GridColumn = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 33%;
-  @media (max-width: 991px) {
-    width: 100%;
-  }
-`;
-
-const ThumbnailContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  border-radius: 10px;
-  position: relative;
-  aspect-ratio: 1.781;
-  align-items: end;
-  padding: 185px 77px 7px;
-
-  @media (max-width: 991px) {
-    margin-top: 16px;
-    padding: 100px 0 0 20px;
-  }
-`;
-
-const ThumbnailImage = styled.img`
-  position: absolute;
-  inset: 0;
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-`;
-
-const Duration = styled.div`
-  position: relative;
-  border-radius: 6px;
-  background-color: rgba(81, 81, 90, 0.95);
-  color: #fff;
-  padding: 4px 5px;
-  font: 500 13px Roboto, sans-serif;
-`;
-
-const ListContainer = styled.section`
-  display: flex;
-  margin-top: 12px;
-  width: 100%;
-  gap: 40px 65px;
-  flex-wrap: wrap;
-  @media (max-width: 991px) {
-    max-width: 100%;
-    margin-right: 6px;
-  }
-`;
-
-const ItemContainer = styled.article`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
-
-const VideoInfo = styled.div`
-  align-self: stretch;
-  display: flex;
-  gap: 14px;
-`;
-
-const AvatarContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-self: start;
-  position: relative;
-  width: 36px;
-  aspect-ratio: 1;
-`;
-
-const Avatar = styled.img`
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  object-fit: cover;
-`;
-
-const Title = styled.h3`
-  color: #000;
-  flex-grow: 1;
-  font: 500 18px Roboto, sans-serif;
-  margin: 0;
-`;
-
-const ChannelInfo = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  margin-top: 5px;
-`;
-
-const ChannelName = styled.span`
-  color: #6a6a6a;
-  font: 500 16px Roboto, sans-serif;
-`;
-
-const VerifiedBadge = styled.img`
-  width: 18px;
-  height: 18px;
-`;
-
-const ViewInfo = styled.div`
-  color: #6a6a6a;
-  margin-top: 5px;
-  font: 500 16px Roboto, sans-serif;
 `;
