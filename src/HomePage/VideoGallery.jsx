@@ -113,7 +113,7 @@ export default function VideoGallery() {
                     </Tag>
                 ))}
                 <NavigationButton aria-label="Show more tags">
-                    <img src="https://example.com/navbutton.png" alt="" />
+                    <img src="/images/Morei.svg" alt="" />
                 </NavigationButton>
             </TagsContainer>
             <GridContainer>
@@ -128,7 +128,6 @@ export default function VideoGallery() {
 const GalleryContainer = styled.main`
     display: flex;
     flex-direction: column;
-    width: 100%;
     height: 700px;
     background-color: #fff;
 `;
@@ -144,6 +143,7 @@ const TagsContainer = styled.nav`
     position: sticky;
     top: 0;
     z-index: 1;
+    margin-left: 7px;
 
     &::-webkit-scrollbar {
         display: none;
