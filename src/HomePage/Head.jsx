@@ -1,7 +1,24 @@
-import React from "react";
+import React, { useState, useRef, useEffect } from "react";
 import styled from "styled-components";
+import ProfileMenu from "./ProfileMenu";
 
 function Head() {
+    const [showProfile, setShowProfile] = useState(false);
+    const profileRef = useRef(null);
+    const menuRef = useRef(null);
+
+    useEffect(() => {
+        function handleClickOutside(event) {
+            if (menuRef.current && !menuRef.current.contains(event.target) &&
+                profileRef.current && !profileRef.current.contains(event.target)) {
+                setShowProfile(false);
+            }
+        }
+
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => document.removeEventListener("mousedown", handleClickOutside);
+    }, []);
+
     const navigationIcons = [
         {
             src: "https://cdn.builder.io/api/v1/image/assets/TEMP/fd350738c6091d790caab582080831678b28e0cc6bee31dacc4baa4410b12733?placeholderIfAbsent=true&apiKey=484c4e2118754c79890e12514f9d5502",
@@ -20,6 +37,8 @@ function Head() {
             alt: "profile",
             width: "33px",
             ratio: "1",
+            onClick: () => setShowProfile(!showProfile),
+            ref: profileRef
         },
     ];
 
@@ -48,14 +67,20 @@ function Head() {
                             alt={icon.alt}
                             width={icon.width}
                             aspectRatio={icon.ratio}
+                            onClick={icon.onClick}
+                            ref={icon.ref}
                         />
                     ))}
                 </IconSection>
             </NavContainer>
+            {showProfile && (
+                <ProfileMenuWrapper ref={menuRef}>
+                    <ProfileMenu />
+                </ProfileMenuWrapper>
+            )}
         </HeaderContainer>
     );
 }
-
 const HeaderContainer = styled.header`
   width: 100%;
   display: flex;
@@ -179,25 +204,21 @@ const SearchIcon = styled.img`
   width: 19px;
 `;
 
-function IconButton({ src, alt, width, aspectRatio }) {
-    return (
-        <StyledIcon
-            loading="lazy"
-            src={src}
-            alt={alt}
-            $width={width}
-            $aspectRatio={aspectRatio}
-        />
-    );
-}
+const ProfileMenuWrapper = styled.div`
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    z-index: 1000;
+`;
 
-const StyledIcon = styled.img`
-  aspect-ratio: ${(props) => props.$aspectRatio};
-  object-fit: contain;
-  object-position: center;
-  width: ${(props) => props.$width};
-  align-self: stretch;
-  margin: auto 0;
+const IconButton = styled.img`
+    aspect-ratio: ${(props) => props.$aspectRatio};
+    object-fit: contain;
+    object-position: center;
+    width: ${(props) => props.$width};
+    align-self: stretch;
+    margin: auto 0;
+    cursor: pointer;
 `;
 
 export default Head;

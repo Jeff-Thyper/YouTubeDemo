@@ -31,76 +31,79 @@ export default function VideoGallery() {
             uploadTime: "3 days ago"
         },
         {
-            thumbnailUrl: "https://cdn.builder.io/api/v1/image/assets/TEMP/d2cd3409fe7871fe63c0c358787a0c8d32f3f6bbcdbde4db3af009b6dbd85cf7",
-            duration: "1:39:43",
-            channelAvatarUrl: "https://cdn.builder.io/api/v1/image/assets/TEMP/c57f366b52250d2ead3bb98b85bca4e9207f1b760058669f524b6a21fa6ad872",
-            title: "Lecture 1: Definitions of System, Property, State, and Weight",
-            channelName: "MIT OpenCourseWare",
-            views: "13K",
-            uploadTime: "3 days ago"
+            thumbnailUrl: "images/game1.png",
+            duration: "10:02",
+            channelAvatarUrl: "images/game1.jpg",
+            title: "Where Did You Learn To Fly!? (Game Fails #461)",
+            channelName: "GameSprout",
+            views: "30K",
+            uploadTime: "11 hours ago"
         },
         {
-            thumbnailUrl: "https://cdn.builder.io/api/v1/image/assets/TEMP/d2cd3409fe7871fe63c0c358787a0c8d32f3f6bbcdbde4db3af009b6dbd85cf7",
-            duration: "1:39:43",
-            channelAvatarUrl: "https://cdn.builder.io/api/v1/image/assets/TEMP/c57f366b52250d2ead3bb98b85bca4e9207f1b760058669f524b6a21fa6ad872",
-            title: "Lecture 1: Definitions of System, Property, State, and Weight",
-            channelName: "MIT OpenCourseWare",
-            views: "13K",
-            uploadTime: "3 days ago"
+            thumbnailUrl: "images/course1.png",
+            duration: "5:55",
+            channelAvatarUrl: "images/course1.svg",
+            title: "Program design: Nim game | Intro to \n" +
+                "CS - Python | Khan Academy",
+            channelName: "Khan Academy",
+            views: "5.6K",
+            uploadTime: "3 weeks ago"
         },
         {
-            thumbnailUrl: "https://cdn.builder.io/api/v1/image/assets/TEMP/d2cd3409fe7871fe63c0c358787a0c8d32f3f6bbcdbde4db3af009b6dbd85cf7",
-            duration: "1:39:43",
-            channelAvatarUrl: "https://cdn.builder.io/api/v1/image/assets/TEMP/c57f366b52250d2ead3bb98b85bca4e9207f1b760058669f524b6a21fa6ad872",
-            title: "Lecture 1: Definitions of System, Property, State, and Weight",
-            channelName: "MIT OpenCourseWare",
-            views: "13K",
-            uploadTime: "3 days ago"
+            thumbnailUrl: "images/cook.png",
+            duration: "17:42",
+            channelAvatarUrl: "images/cook.jpg",
+            title: "How To Cook The Perfect Steak",
+            channelName: "Nick DiGiovanni",
+            views: "5.8M",
+            uploadTime: "1 year ago"
         },
         {
-            thumbnailUrl: "https://cdn.builder.io/api/v1/image/assets/TEMP/d2cd3409fe7871fe63c0c358787a0c8d32f3f6bbcdbde4db3af009b6dbd85cf7",
-            duration: "1:39:43",
-            channelAvatarUrl: "https://cdn.builder.io/api/v1/image/assets/TEMP/c57f366b52250d2ead3bb98b85bca4e9207f1b760058669f524b6a21fa6ad872",
-            title: "Lecture 1: Definitions of System, Property, State, and Weight",
-            channelName: "MIT OpenCourseWare",
-            views: "13K",
-            uploadTime: "3 days ago"
+            thumbnailUrl: "images/c4.png",
+            duration: "28:07",
+            channelAvatarUrl: "images/c4.svg",
+            title: "Applications of Integration Formula\n" +
+                "Review - Antiderivatives, Definite ...",
+            channelName: "The Organic Chemistry Tutor",
+            views: "26K",
+            uploadTime: "3 weeks ago"
         },
         {
-            thumbnailUrl: "https://cdn.builder.io/api/v1/image/assets/TEMP/d2cd3409fe7871fe63c0c358787a0c8d32f3f6bbcdbde4db3af009b6dbd85cf7",
-            duration: "1:39:43",
-            channelAvatarUrl: "https://cdn.builder.io/api/v1/image/assets/TEMP/c57f366b52250d2ead3bb98b85bca4e9207f1b760058669f524b6a21fa6ad872",
-            title: "Lecture 1: Definitions of System, Property, State, and Weight",
-            channelName: "MIT OpenCourseWare",
-            views: "13K",
-            uploadTime: "3 days ago"
+            thumbnailUrl: "images/c5.png",
+            duration: "17:31",
+            channelAvatarUrl: "images/c5.svg",
+            title: "Biology explained in 17 Minutes",
+            channelName: "Wacky Science",
+            views: "905K",
+            uploadTime: "4 months ago"
         },
         {
-            thumbnailUrl: "https://cdn.builder.io/api/v1/image/assets/TEMP/d2cd3409fe7871fe63c0c358787a0c8d32f3f6bbcdbde4db3af009b6dbd85cf7",
-            duration: "1:39:43",
-            channelAvatarUrl: "https://cdn.builder.io/api/v1/image/assets/TEMP/c57f366b52250d2ead3bb98b85bca4e9207f1b760058669f524b6a21fa6ad872",
-            title: "Lecture 1: Definitions of System, Property, State, and Weight",
-            channelName: "MIT OpenCourseWare",
-            views: "13K",
-            uploadTime: "3 days ago"
+            thumbnailUrl: "images/c2.png",
+            duration: "2:01",
+            channelAvatarUrl: "images/c2.svg",
+            title: "2 Years of College Computer Science \n" +
+                "in 2 Minutes",
+            channelName: "Prof Korupt",
+            views: "154K",
+            uploadTime: "2 months ago"
         },
         {
-            thumbnailUrl: "https://cdn.builder.io/api/v1/image/assets/TEMP/d2cd3409fe7871fe63c0c358787a0c8d32f3f6bbcdbde4db3af009b6dbd85cf7",
-            duration: "1:39:43",
-            channelAvatarUrl: "https://cdn.builder.io/api/v1/image/assets/TEMP/c57f366b52250d2ead3bb98b85bca4e9207f1b760058669f524b6a21fa6ad872",
-            title: "Lecture 1: Definitions of System, Property, State, and Weight",
-            channelName: "MIT OpenCourseWare",
-            views: "13K",
-            uploadTime: "3 days ago"
+            thumbnailUrl: "images/c3.png",
+            duration: "19:06",
+            channelAvatarUrl: "images/c3.svg",
+            title: "Calculus at Fifth Grade Level",
+            channelName: "Lukey B. The Physics G",
+            views: "8.4M",
+            uploadTime: "7 years ago"
         },
         {
-            thumbnailUrl: "https://cdn.builder.io/api/v1/image/assets/TEMP/d2cd3409fe7871fe63c0c358787a0c8d32f3f6bbcdbde4db3af009b6dbd85cf7",
-            duration: "1:39:43",
-            channelAvatarUrl: "https://cdn.builder.io/api/v1/image/assets/TEMP/c57f366b52250d2ead3bb98b85bca4e9207f1b760058669f524b6a21fa6ad872",
-            title: "Lecture 1: Definitions of System, Property, State, and Weight",
-            channelName: "MIT OpenCourseWare",
-            views: "13K",
-            uploadTime: "3 days ago"
+            thumbnailUrl: "images/game2.png",
+            duration: "31:32",
+            channelAvatarUrl: "images/game2.jpg",
+            title: "25 Perfect 10/10 Games You MUST Play",
+            channelName: "GameVerseChamp",
+            views: "5.8M",
+            uploadTime: "1 month ago"
         },
     ];
 
