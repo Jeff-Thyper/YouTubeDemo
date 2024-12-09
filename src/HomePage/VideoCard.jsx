@@ -5,9 +5,7 @@ export function VideoCard({
                               thumbnailUrl,
                               duration,
                               channelAvatarUrl,
-                              channelVerifiedIconUrl,
                               title,
-                              menuIconUrl,
                               channelName,
                               views,
                               uploadTime
@@ -35,7 +33,7 @@ export function VideoCard({
                     <MenuIconWrapper>
                         <MenuIcon
                             loading="lazy"
-                            src={menuIconUrl}
+                            src="images/Morei.svg"
                             alt="Video options menu"
                         />
                     </MenuIconWrapper>
@@ -43,13 +41,6 @@ export function VideoCard({
                 <MetaInfo>
                     <ChannelNameWrapper>
                         <ChannelName>{channelName}</ChannelName>
-                        {channelVerifiedIconUrl && (
-                            <VerifiedBadge
-                                loading="lazy"
-                                src={channelVerifiedIconUrl}
-                                alt="Verified channel badge"
-                            />
-                        )}
                     </ChannelNameWrapper>
                     <ViewsAndTime>{views} views • {uploadTime}</ViewsAndTime>
                 </MetaInfo>

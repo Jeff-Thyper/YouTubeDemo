@@ -20,17 +20,89 @@ export default function VideoGallery() {
     ];
 
     // Sample video data array
-    const videos = Array(12).fill({
-        thumbnailUrl: "https://cdn.builder.io/api/v1/image/assets/TEMP/d2cd3409fe7871fe63c0c358787a0c8d32f3f6bbcdbde4db3af009b6dbd85cf7",
-        duration: "1:39:43",
-        channelAvatarUrl: "https://cdn.builder.io/api/v1/image/assets/TEMP/c57f366b52250d2ead3bb98b85bca4e9207f1b760058669f524b6a21fa6ad872",
-        channelVerifiedIconUrl: "https://cdn.builder.io/api/v1/image/assets/TEMP/d84bf073355c8df4a8c251dafd329142174b8bd144ffdfef845525286b60577c",
-        title: "Lecture 1: Definitions of System, Property, State, and Weight",
-        menuIconUrl: "https://cdn.builder.io/api/v1/image/assets/TEMP/5dcd86dd623775f3b2f6b4656a32d480db6bf857dbbbf3d6d9c0c6deddabe0b9",
-        channelName: "MIT OpenCourseWare",
-        views: "13K",
-        uploadTime: "3 days ago"
-    });
+    const videos = [
+        {
+            thumbnailUrl: "https://cdn.builder.io/api/v1/image/assets/TEMP/d2cd3409fe7871fe63c0c358787a0c8d32f3f6bbcdbde4db3af009b6dbd85cf7",
+            duration: "1:39:43",
+            channelAvatarUrl: "https://cdn.builder.io/api/v1/image/assets/TEMP/c57f366b52250d2ead3bb98b85bca4e9207f1b760058669f524b6a21fa6ad872",
+            title: "Lecture 1: Definitions of System, Property, State, and Weight",
+            channelName: "MIT OpenCourseWare",
+            views: "13K",
+            uploadTime: "3 days ago"
+        },
+        {
+            thumbnailUrl: "https://cdn.builder.io/api/v1/image/assets/TEMP/d2cd3409fe7871fe63c0c358787a0c8d32f3f6bbcdbde4db3af009b6dbd85cf7",
+            duration: "1:39:43",
+            channelAvatarUrl: "https://cdn.builder.io/api/v1/image/assets/TEMP/c57f366b52250d2ead3bb98b85bca4e9207f1b760058669f524b6a21fa6ad872",
+            title: "Lecture 1: Definitions of System, Property, State, and Weight",
+            channelName: "MIT OpenCourseWare",
+            views: "13K",
+            uploadTime: "3 days ago"
+        },
+        {
+            thumbnailUrl: "https://cdn.builder.io/api/v1/image/assets/TEMP/d2cd3409fe7871fe63c0c358787a0c8d32f3f6bbcdbde4db3af009b6dbd85cf7",
+            duration: "1:39:43",
+            channelAvatarUrl: "https://cdn.builder.io/api/v1/image/assets/TEMP/c57f366b52250d2ead3bb98b85bca4e9207f1b760058669f524b6a21fa6ad872",
+            title: "Lecture 1: Definitions of System, Property, State, and Weight",
+            channelName: "MIT OpenCourseWare",
+            views: "13K",
+            uploadTime: "3 days ago"
+        },
+        {
+            thumbnailUrl: "https://cdn.builder.io/api/v1/image/assets/TEMP/d2cd3409fe7871fe63c0c358787a0c8d32f3f6bbcdbde4db3af009b6dbd85cf7",
+            duration: "1:39:43",
+            channelAvatarUrl: "https://cdn.builder.io/api/v1/image/assets/TEMP/c57f366b52250d2ead3bb98b85bca4e9207f1b760058669f524b6a21fa6ad872",
+            title: "Lecture 1: Definitions of System, Property, State, and Weight",
+            channelName: "MIT OpenCourseWare",
+            views: "13K",
+            uploadTime: "3 days ago"
+        },
+        {
+            thumbnailUrl: "https://cdn.builder.io/api/v1/image/assets/TEMP/d2cd3409fe7871fe63c0c358787a0c8d32f3f6bbcdbde4db3af009b6dbd85cf7",
+            duration: "1:39:43",
+            channelAvatarUrl: "https://cdn.builder.io/api/v1/image/assets/TEMP/c57f366b52250d2ead3bb98b85bca4e9207f1b760058669f524b6a21fa6ad872",
+            title: "Lecture 1: Definitions of System, Property, State, and Weight",
+            channelName: "MIT OpenCourseWare",
+            views: "13K",
+            uploadTime: "3 days ago"
+        },
+        {
+            thumbnailUrl: "https://cdn.builder.io/api/v1/image/assets/TEMP/d2cd3409fe7871fe63c0c358787a0c8d32f3f6bbcdbde4db3af009b6dbd85cf7",
+            duration: "1:39:43",
+            channelAvatarUrl: "https://cdn.builder.io/api/v1/image/assets/TEMP/c57f366b52250d2ead3bb98b85bca4e9207f1b760058669f524b6a21fa6ad872",
+            title: "Lecture 1: Definitions of System, Property, State, and Weight",
+            channelName: "MIT OpenCourseWare",
+            views: "13K",
+            uploadTime: "3 days ago"
+        },
+        {
+            thumbnailUrl: "https://cdn.builder.io/api/v1/image/assets/TEMP/d2cd3409fe7871fe63c0c358787a0c8d32f3f6bbcdbde4db3af009b6dbd85cf7",
+            duration: "1:39:43",
+            channelAvatarUrl: "https://cdn.builder.io/api/v1/image/assets/TEMP/c57f366b52250d2ead3bb98b85bca4e9207f1b760058669f524b6a21fa6ad872",
+            title: "Lecture 1: Definitions of System, Property, State, and Weight",
+            channelName: "MIT OpenCourseWare",
+            views: "13K",
+            uploadTime: "3 days ago"
+        },
+        {
+            thumbnailUrl: "https://cdn.builder.io/api/v1/image/assets/TEMP/d2cd3409fe7871fe63c0c358787a0c8d32f3f6bbcdbde4db3af009b6dbd85cf7",
+            duration: "1:39:43",
+            channelAvatarUrl: "https://cdn.builder.io/api/v1/image/assets/TEMP/c57f366b52250d2ead3bb98b85bca4e9207f1b760058669f524b6a21fa6ad872",
+            title: "Lecture 1: Definitions of System, Property, State, and Weight",
+            channelName: "MIT OpenCourseWare",
+            views: "13K",
+            uploadTime: "3 days ago"
+        },
+        {
+            thumbnailUrl: "https://cdn.builder.io/api/v1/image/assets/TEMP/d2cd3409fe7871fe63c0c358787a0c8d32f3f6bbcdbde4db3af009b6dbd85cf7",
+            duration: "1:39:43",
+            channelAvatarUrl: "https://cdn.builder.io/api/v1/image/assets/TEMP/c57f366b52250d2ead3bb98b85bca4e9207f1b760058669f524b6a21fa6ad872",
+            title: "Lecture 1: Definitions of System, Property, State, and Weight",
+            channelName: "MIT OpenCourseWare",
+            views: "13K",
+            uploadTime: "3 days ago"
+        },
+    ];
 
     return (
         <GalleryContainer>
@@ -57,7 +129,7 @@ const GalleryContainer = styled.main`
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 100vh;
+    height: 700px;
     background-color: #fff;
 `;
 
