@@ -1,119 +1,328 @@
-import React from "react";
-import styled from "styled-components";
+import React, { useState } from 'react';
+import styled from 'styled-components';
 
-const menuSections = [
-    {
-        items: [
-            { icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/52042e72a974d5dfa1672c509c9d888bf37aafcd2a0ccf38c14c303c22da2b91?placeholderIfAbsent=true&apiKey=484c4e2118754c79890e12514f9d5502", text: "Youtube Studio" },
-            { icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/e3be7e5f5a7ec8d69abc64f84757bfae09a18d61dd529606caf30470cf604aa7?placeholderIfAbsent=true&apiKey=484c4e2118754c79890e12514f9d5502", text: "Purchases and memberships" }
-        ]
-    },
-    {
-        items: [
-            { icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/95065ba8ceaa1ffd7e3a797d1771de4a8c4e39ca8ec13495c6d3b02b22d41cb6?placeholderIfAbsent=true&apiKey=484c4e2118754c79890e12514f9d5502", text: "Your data in YouTube" },
-            { icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/cedfe8b593daae127c28399984934b8b0939fe1dd539bb88cdad45845fc9a5a9?placeholderIfAbsent=true&apiKey=484c4e2118754c79890e12514f9d5502", text: "Appearance: Light" },
-            { icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/b53d3eb4a6208566eac50087885ed7c09abfcb4134d719d5d507912a80dc3e30?placeholderIfAbsent=true&apiKey=484c4e2118754c79890e12514f9d5502", text: "Language: British English" },
-            { icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/9cc9a553d43976025a15f96c6406b83e2129d1e6c456cb4f95c0801a214605b2?placeholderIfAbsent=true&apiKey=484c4e2118754c79890e12514f9d5502", text: "Restricted Mode: Off" },
-            { icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/970283239a876bcf077c7566f0dbee2b3bd453adc3fee32057a9e56a036eb467?placeholderIfAbsent=true&apiKey=484c4e2118754c79890e12514f9d5502", text: "Focus Mode: Off" },
-            { icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/6e747572f27e76e65cd97a01aec73559b327cbc0536ee066269435b4ffc8ba5d?placeholderIfAbsent=true&apiKey=484c4e2118754c79890e12514f9d5502", text: "Location: United States" },
-            { icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/3d7c10dfe760f7fee2fa28074708d05a33e43d6feb3d556dd6f8491e36c81fd2?placeholderIfAbsent=true&apiKey=484c4e2118754c79890e12514f9d5502", text: "Keyboard shortcuts" }
-        ]
-    },
-    {
-        items: [
-            { icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/745f4c13590a13984ce919034f426909728260cf5acb755f29ae7f0fa71d03d1?placeholderIfAbsent=true&apiKey=484c4e2118754c79890e12514f9d5502", text: "Settings" }
-        ]
-    },
-    {
-        items: [
-            { icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/b09051b41df24f1ff76a37cce7b7e5a43fc0f36cda809393727490fb571c614c?placeholderIfAbsent=true&apiKey=484c4e2118754c79890e12514f9d5502", text: "Help" },
-            { icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/2d8f1f468d8edcf18d5d6755d68e9b4d92f47a6281bcb55dfb6475c65a5bee6d?placeholderIfAbsent=true&apiKey=484c4e2118754c79890e12514f9d5502", text: "Send feedback" }
-        ]
-    }
-];
+const FocusModePopup = ({ isOpen, onClose, isFocusModeEnabled, onToggle }) => {
+    if (!isOpen) return null;
 
-function ProfileMenu() {
     return (
-        <MenuContainer>
-            <MenuContent>
-                <ProfileWrapper>
-                    <ProfileContent>
-                        <Avatar
-                            loading="lazy"
-                            src="https://cdn.builder.io/api/v1/image/assets/TEMP/854a70a2e4a920bbc67982f6ed5080bf14779ce2d605df3f32f15476f809d95f?placeholderIfAbsent=true&apiKey=484c4e2118754c79890e12514f9d5502"
-                            alt="User avatar"
-                        />
-                        <UserInfo>
-                            <UserName>No Thoughts Head Empty</UserName>
-                            <UserHandle>@no_thoughts_head_empty</UserHandle>
-                        </UserInfo>
-                    </ProfileContent>
-                    <ViewChannel>View your channel</ViewChannel>
-                </ProfileWrapper>
+        <PopupOverlay onClick={onClose}>
+            <PopupContent onClick={e => e.stopPropagation()}>
+                <HeaderSection>
+                    <FocusIcon
+                        src="/api/placeholder/17/17"
+                        alt="Focus mode icon"
+                    />
+                    <HeaderText>Focus Mode</HeaderText>
+                </HeaderSection>
                 <Divider />
-                <ControlsWrapper>
-                    <AccountItem>
-                        <ControlIcon
-                            src="https://cdn.builder.io/api/v1/image/assets/TEMP/13a1acb5d636af6a71ad07b0283eeb51ca2c97f94462e9ea9ad28c4232a96a2c?placeholderIfAbsent=true&apiKey=484c4e2118754c79890e12514f9d5502"
-                            alt="Google Account"
-                        />
-                        <ControlText>Google Account</ControlText>
-                    </AccountItem>
-                    <AccountItem>
-                        <ControlIcon
-                            src="https://cdn.builder.io/api/v1/image/assets/TEMP/4b43cb76d884683e6fd31042100e795fe324a6c6089dd5f202f37699067e08e0?placeholderIfAbsent=true&apiKey=484c4e2118754c79890e12514f9d5502"
-                            alt="Switch account"
-                        />
-                        <ControlText>Switch account</ControlText>
-                    </AccountItem>
-                    <AccountItem>
-                        <ControlIcon
-                            src="https://cdn.builder.io/api/v1/image/assets/TEMP/cafb05cf0908dff8344c416150c78bedf7b9809c8d2373b4bf5967581b68432e?placeholderIfAbsent=true&apiKey=484c4e2118754c79890e12514f9d5502"
-                            alt="Sign out"
-                        />
-                        <ControlText>Sign out</ControlText>
-                    </AccountItem>
-                </ControlsWrapper>
-                <Divider />
-                {menuSections.map((section, index) => (
-                    <React.Fragment key={index}>
-                        <SectionWrapper>
-                            {section.items.map((item, idx) => (
-                                <MenuItem key={idx}>
-                                    <MenuIcon src={item.icon} alt={item.text} />
-                                    <MenuText>{item.text}</MenuText>
-                                </MenuItem>
-                            ))}
-                        </SectionWrapper>
-                        {index < menuSections.length - 1 && <Divider />}
-                    </React.Fragment>
-                ))}
-            </MenuContent>
-        </MenuContainer>
+                <ContentSection>
+                    <Description>
+                        This helps hide unrelated or distracting videos when viewing
+                        educational content.
+                        <br />
+                        No filter is 100% accurate.
+                    </Description>
+                    <BrowserNote>
+                        This setting only applies to this browser.
+                    </BrowserNote>
+                    <ControlSection>
+                        <ActivateButton
+                            tabIndex="0"
+                            role="button"
+                            onClick={onToggle}
+                            onKeyPress={(e) => {
+                                if (e.key === "Enter") {
+                                    onToggle();
+                                }
+                            }}
+                        >
+                            {isFocusModeEnabled ? 'DEACTIVATE' : 'ACTIVATE'} FOCUS MODE
+                        </ActivateButton>
+                        <ToggleWrapper onClick={onToggle}>
+                            <ToggleButton
+                                role="switch"
+                                aria-checked={isFocusModeEnabled}
+                                tabIndex="0"
+                                isActive={isFocusModeEnabled}
+                            />
+                            <ToggleTrack isActive={isFocusModeEnabled} />
+                        </ToggleWrapper>
+                    </ControlSection>
+                </ContentSection>
+            </PopupContent>
+        </PopupOverlay>
     );
-}
+};
+
+const ProfileMenu = () => {
+    const [isFocusModeOpen, setIsFocusModeOpen] = useState(false);
+    const [isFocusModeEnabled, setIsFocusModeEnabled] = useState(false);
+
+    const handleFocusModeClick = () => {
+        setIsFocusModeOpen(true);
+    };
+
+    const handleToggleFocusMode = () => {
+        setIsFocusModeEnabled(!isFocusModeEnabled);
+    };
+
+    const menuSections = [
+        {
+            items: [
+                {
+                    icon: "/api/placeholder/24/24",
+                    text: "Youtube Studio"
+                },
+                {
+                    icon: "/api/placeholder/24/24",
+                    text: "Purchases and memberships"
+                }
+            ]
+        },
+        {
+            items: [
+                {
+                    icon: "/api/placeholder/24/24",
+                    text: "Your data in YouTube"
+                },
+                {
+                    icon: "/api/placeholder/24/24",
+                    text: "Appearance: Light"
+                },
+                {
+                    icon: "/api/placeholder/24/24",
+                    text: "Language: British English"
+                },
+                {
+                    icon: "/api/placeholder/24/24",
+                    text: "Restricted Mode: Off"
+                },
+                {
+                    icon: "/api/placeholder/24/24",
+                    text: `Focus Mode: ${isFocusModeEnabled ? 'On' : 'Off'}`,
+                    onClick: handleFocusModeClick
+                },
+                {
+                    icon: "/api/placeholder/24/24",
+                    text: "Location: United States"
+                },
+                {
+                    icon: "/api/placeholder/24/24",
+                    text: "Keyboard shortcuts"
+                }
+            ]
+        },
+        {
+            items: [
+                {
+                    icon: "/api/placeholder/24/24",
+                    text: "Settings"
+                }
+            ]
+        },
+        {
+            items: [
+                {
+                    icon: "/api/placeholder/24/24",
+                    text: "Help"
+                },
+                {
+                    icon: "/api/placeholder/24/24",
+                    text: "Send feedback"
+                }
+            ]
+        }
+    ];
+
+    return (
+        <div>
+            <MenuContainer>
+                <MenuContent>
+                    <ProfileWrapper>
+                        <ProfileContent>
+                            <Avatar
+                                src="/api/placeholder/40/40"
+                                alt="User avatar"
+                            />
+                            <UserInfo>
+                                <UserName>No Thoughts Head Empty</UserName>
+                                <UserHandle>@no_thoughts_head_empty</UserHandle>
+                            </UserInfo>
+                        </ProfileContent>
+                        <ViewChannel>View your channel</ViewChannel>
+                    </ProfileWrapper>
+                    <Divider />
+                    <ControlsWrapper>
+                        <AccountItem>
+                            <ControlIcon
+                                src="/api/placeholder/24/24"
+                                alt="Google Account"
+                            />
+                            <ControlText>Google Account</ControlText>
+                        </AccountItem>
+                        <AccountItem>
+                            <ControlIcon
+                                src="/api/placeholder/24/24"
+                                alt="Switch account"
+                            />
+                            <ControlText>Switch account</ControlText>
+                        </AccountItem>
+                        <AccountItem>
+                            <ControlIcon
+                                src="/api/placeholder/24/24"
+                                alt="Sign out"
+                            />
+                            <ControlText>Sign out</ControlText>
+                        </AccountItem>
+                    </ControlsWrapper>
+                    <Divider />
+                    {menuSections.map((section, index) => (
+                        <React.Fragment key={index}>
+                            <SectionWrapper>
+                                {section.items.map((item, idx) => (
+                                    <MenuItem key={idx} onClick={item.onClick}>
+                                        <MenuIcon src={item.icon} alt={item.text} />
+                                        <MenuText>{item.text}</MenuText>
+                                    </MenuItem>
+                                ))}
+                            </SectionWrapper>
+                            {index < menuSections.length - 1 && <Divider />}
+                        </React.Fragment>
+                    ))}
+                </MenuContent>
+            </MenuContainer>
+
+            <FocusModePopup
+                isOpen={isFocusModeOpen}
+                onClose={() => setIsFocusModeOpen(false)}
+                isFocusModeEnabled={isFocusModeEnabled}
+                onToggle={handleToggleFocusMode}
+            />
+        </div>
+    );
+};
+
+// [Previous styled components remain exactly the same]
+const PopupOverlay = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+`;
+
+const PopupContent = styled.div`
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0 4px 50px rgba(0, 0, 0, 0.25);
+  width: 303px;
+  padding: 22px 0;
+`;
+
+const HeaderSection = styled.div`
+  display: flex;
+  margin-left: 19px;
+  gap: 15px;
+  color: #000;
+  font: 500 16px Roboto, sans-serif;
+`;
+
+const FocusIcon = styled.img`
+  aspect-ratio: 1.13;
+  object-fit: contain;
+  object-position: center;
+  width: 17px;
+`;
+
+const HeaderText = styled.div`
+  font: 500 16px Roboto, sans-serif;
+`;
+
+const Divider = styled.div`
+  height: 1px;
+  background-color: #e3e3e3;
+  margin: 16px 0;
+`;
+
+const ContentSection = styled.div`
+  padding: 0 19px;
+`;
+
+const Description = styled.div`
+  color: #000;
+  font: 400 14px Roboto, sans-serif;
+`;
+
+const BrowserNote = styled.div`
+  color: #000;
+  margin-top: 19px;
+  font: 400 14px Roboto, sans-serif;
+`;
+
+const ControlSection = styled.div`
+  display: flex;
+  margin-top: 14px;
+  gap: 13px;
+`;
+
+const ActivateButton = styled.div`
+  color: #606060;
+  letter-spacing: 0.42px;
+  font: 700 14px Roboto, sans-serif;
+  cursor: pointer;
+  
+  &:focus {
+    outline: 2px solid #000;
+    outline-offset: 2px;
+  }
+`;
+
+const ToggleWrapper = styled.div`
+  display: flex;
+  position: relative;
+  cursor: pointer;
+`;
+
+const ToggleButton = styled.div`
+  background-color: ${props => props.isActive ? '#000' : '#fff'};
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.53);
+  border-radius: 50%;
+  width: 21px;
+  height: 21px;
+  position: relative;
+  z-index: 1;
+  transform: translateX(${props => props.isActive ? '19px' : '0'});
+  transition: transform 0.2s, background-color 0.2s;
+`;
+
+const ToggleTrack = styled.div`
+  border-radius: 19px;
+  background-color: ${props => props.isActive ? '#000' : '#d9d9d9'};
+  width: 40px;
+  height: 14px;
+  margin-top: 4px;
+  position: absolute;
+  transition: background-color 0.2s;
+`;
 
 const MenuContainer = styled.div`
   border-radius: 0;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.12);
-  display: flex;
   max-width: 300px;
-  flex-direction: column;
 `;
 
 const MenuContent = styled.div`
   border-radius: 10px;
   background-color: #fff;
-  display: flex;
-  width: 100%;
-  flex-direction: column;
   padding: 17px 0;
 `;
 
 const ProfileWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  font-family: Roboto, sans-serif;
   padding: 0 15px;
 `;
 
@@ -124,6 +333,7 @@ const ProfileContent = styled.div`
 
 const Avatar = styled.img`
   width: 40px;
+  height: 40px;
   border-radius: 50%;
 `;
 
@@ -134,23 +344,20 @@ const UserInfo = styled.div`
 
 const UserName = styled.div`
   font-size: 17px;
+  font-family: Roboto, sans-serif;
 `;
 
 const UserHandle = styled.div`
   font-size: 16px;
   margin-top: 5px;
+  font-family: Roboto, sans-serif;
 `;
 
 const ViewChannel = styled.div`
   color: #2d76da;
   font-size: 14px;
   margin-top: 15px;
-`;
-
-const Divider = styled.div`
-  height: 1px;
-  background-color: #e3e3e3;
-  margin: 16px 0;
+  font-family: Roboto, sans-serif;
 `;
 
 const ControlsWrapper = styled.div`
@@ -161,14 +368,23 @@ const AccountItem = styled.div`
   display: flex;
   gap: 10px;
   margin-bottom: 10px;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 4px;
+  
+  &:hover {
+    background-color: #f2f2f2;
+  }
 `;
 
 const ControlIcon = styled.img`
   width: 24px;
+  height: 24px;
 `;
 
 const ControlText = styled.div`
   font-size: 14px;
+  font-family: Roboto, sans-serif;
 `;
 
 const SectionWrapper = styled.div`
@@ -179,14 +395,23 @@ const MenuItem = styled.div`
   display: flex;
   gap: 10px;
   margin-bottom: 10px;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 4px;
+  
+  &:hover {
+    background-color: #f2f2f2;
+  }
 `;
 
 const MenuIcon = styled.img`
   width: 24px;
+  height: 24px;
 `;
 
 const MenuText = styled.div`
   font-size: 14px;
+  font-family: Roboto, sans-serif;
 `;
 
 export default ProfileMenu;
