@@ -54,7 +54,7 @@ export function NavigationBar() {
             </NavigationSection>
             <Divider />
             <UserSection>
-                <SectionTitle>You</SectionTitle>
+                <STitle>You</STitle>
                 {userItems.map((item, index) => (
                     <NavigationItem key={index} icon={item.icon} label={item.label} />
                 ))}
@@ -80,6 +80,14 @@ const SidebarContainer = styled.nav`
     overflow-y: auto;
     height: 700px;
 `;
+
+const STitle = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 0 12px;
+    margin-bottom: 16px;
+`;
+
 
 const NavigationSection = styled.div`
   display: flex;
