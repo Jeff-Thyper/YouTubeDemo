@@ -289,7 +289,7 @@ const ToggleWrapper = styled.div`
 `;
 
 const ToggleButton = styled.div`
-  background-color: ${props => props.isActive ? '#000' : '#fff'};
+  background-color: ${props => props.isActive ? '#0450ef' : '#131313'};
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.53);
   border-radius: 50%;
   width: 21px;
@@ -302,7 +302,7 @@ const ToggleButton = styled.div`
 
 const ToggleTrack = styled.div`
   border-radius: 19px;
-  background-color: ${props => props.isActive ? '#000' : '#d9d9d9'};
+  background-color: ${props => props.isActive ? 'rgba(31,32,35,0.18)' : '#d9d9d9'};
   width: 40px;
   height: 14px;
   margin-top: 4px;
