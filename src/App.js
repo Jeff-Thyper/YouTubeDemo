@@ -1,9 +1,9 @@
 import logo from './logo.svg';
 import './App.css';
-import Head from "./HomePage/SearchBar";
+import {Home} from "./HomePage/Home";
 function App() {
   return (
-    <Head></Head>
+    <Home></Home>
   );
 }
 

@@ -34,12 +34,12 @@ function Head() {
                 </LogoSection>
                 <SearchSection>
                     <SearchInput />
-                    <NotificationIcon
-                        loading="lazy"
-                        src="https://cdn.builder.io/api/v1/image/assets/TEMP/232febee261919efdd74953e5edb7550aac631febb672796b3ce423abecb1f8b?placeholderIfAbsent=true&apiKey=484c4e2118754c79890e12514f9d5502"
-                        alt="notifications"
-                    />
                 </SearchSection>
+                <NotificationIcon
+                    loading="lazy"
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/232febee261919efdd74953e5edb7550aac631febb672796b3ce423abecb1f8b?placeholderIfAbsent=true&apiKey=484c4e2118754c79890e12514f9d5502"
+                    alt="notifications"
+                />
                 <IconSection>
                     {navigationIcons.map((icon, index) => (
                         <IconButton
@@ -59,9 +59,7 @@ function Head() {
 const HeaderContainer = styled.header`
   width: 100%;
   display: flex;
-  justify-content: center;
   background-color: #f8f8f8;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   padding: 10px 20px;
 `;
 
@@ -73,32 +71,24 @@ const NavContainer = styled.nav`
 `;
 
 const LogoSection = styled.div`
-
   display: flex;
   gap: 28px;
-  
 `;
 
 const SearchSection = styled.div`
-  align-self: stretch;
   display: flex;
-  gap: 6px;
-  flex-wrap: wrap;
+    padding-left: 200px;
 `;
 
 const NotificationIcon = styled.img`
-  aspect-ratio: 1.15;
-  object-fit: contain;
-  object-position: center;
+    margin-left: -100px;
   width: 60px;
 `;
 
 const IconSection = styled.div`
-  align-self: stretch;
+    margin-left: 200px;
   display: flex;
-  align-items: center;
   gap: 30px;
-  margin: auto 0;
 `;
 
 function Logo({ menuIcon, logoImage }) {
@@ -127,46 +117,27 @@ const LogoImage = styled.img`
 
 function SearchInput() {
     return (
-        <SearchContainer>
-            <SearchWrapper>
-                <label htmlFor="searchInput" className="visually-hidden">
-                    Search
-                </label>
-                <SearchText id="searchInput" placeholder="Search" />
-                <SearchIconWrapper>
-                    <Divider />
-                    <IconBackground>
-                        <SearchIcon
-                            loading="lazy"
-                            src="https://cdn.builder.io/api/v1/image/assets/TEMP/7a3e2c55b9e9c80418080b995a8de2396827f9460404287ddbeb913b17830fff?placeholderIfAbsent=true&apiKey=484c4e2118754c79890e12514f9d5502"
-                            alt="search"
-                        />
-                    </IconBackground>
-                </SearchIconWrapper>
-            </SearchWrapper>
-        </SearchContainer>
+        <SearchWrapper>
+            <SearchText id="searchInput" placeholder="Search" />
+            <Divider />
+            <IconBackground>
+                <SearchIcon
+                    loading="lazy"
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/7a3e2c55b9e9c80418080b995a8de2396827f9460404287ddbeb913b17830fff?placeholderIfAbsent=true&apiKey=484c4e2118754c79890e12514f9d5502"
+                    alt="search"
+                />
+            </IconBackground>
+        </SearchWrapper>
     );
 }
-
-const SearchContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  flex-basis: 0;
-  width: fit-content;
-  margin: auto 0;
-  @media (max-width: 991px) {
-    max-width: 100%;
-  }
-`;
 
 const SearchWrapper = styled.div`
   border-radius: 19px;
   background-color: rgba(255, 255, 255, 1);
   display: flex;
-  width: 100%;
-  gap: 40px 100px;
-  flex-wrap: wrap;
+  width: 500px;
+  //gap: 40px 100px;
+  //flex-wrap: wrap;
   padding: 0 1px 0 19px;
   border: 1px solid rgba(211, 211, 211, 1);
   @media (max-width: 991px) {
@@ -185,25 +156,20 @@ const SearchText = styled.input`
   }
 `;
 
-const SearchIconWrapper = styled.div`
-  display: flex;
-  flex: 1;
-`;
-
 const Divider = styled.div`
   width: 1px;
   height: 40px;
   border: 1px solid rgba(211, 211, 211, 1);
+    margin-left: 260px;
+
 `;
 
 const IconBackground = styled.div`
+    width: 30px;
   border-radius: 0 19px 19px 0;
   background-color: rgba(247, 247, 247, 1);
-  align-self: start;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px 12px;
+    margin-left: auto;
+  padding: 10px 20px;
 `;
 
 const SearchIcon = styled.img`
